@@ -75,6 +75,9 @@ docs/_build/
 .pybuilder/
 target/
 
+# Datos cacheados (parquet)
+data/
+
 # Jupyter Notebook
 .ipynb_checkpoints
 

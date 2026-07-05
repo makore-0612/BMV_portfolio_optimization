@@ -1,0 +1,11 @@
+yfinance
+pandas
+numpy
+scipy
+plotly
+dash
+scikit-learn
+statsmodels
+PyPortfolioOpt
+pyarrow
+jupyter
