@@ -104,3 +104,7 @@ web: gunicorn app:server
 **Nota:** Yahoo Finance puede limitar o bloquear solicitudes desde IPs de
 datacenter con más agresividad que desde una IP residencial. Si "Actualizar datos"
 falla en producción, es probable que sea por esto — no es necesariamente un bug.
+
+---
+
+> Creado en conjunto con Milena Fernanda Rivera e Ignacio Chuquiure a partir de las notas del curso 'Introducción a las Finanzas y a la Empresa' impartido en el IIMAS - UNAM por el profesor Eduardo Selim Martínez Mayorga junto al profesor adjunto Luis Enrique Villalón Pineda.
