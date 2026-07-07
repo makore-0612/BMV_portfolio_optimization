@@ -11,10 +11,7 @@ Bolsa Mexicana de Valores y optimizar portafolios con dos enfoques complementari
 
 Los datos se obtienen de Yahoo Finance (`yfinance`) y se cachean localmente en Parquet.
 
-## Capturas
-
-_(Agregar capturas de la app corriendo: series de tiempo, frontera eficiente, corte
-espectral.)_
+![Pantalla de inicio](assets/Inicio.png)
 
 ## Estructura del proyecto
 
@@ -26,7 +23,7 @@ BMV_portfolio_optimization/
 ├── notebooks/             # notebooks de exploración y validación
 ├── src/
 │   ├── datos.py           # extracción, limpieza e imputación
-│   ├── estimacion.py       # estimadores de μ y Σ
+│   ├── estimacion.py       # estimadores de $\mu$ y $\Sigma$
 │   ├── optimizacion.py     # frontera clásica (GMV, tangencia, CML)
 │   ├── espectral.py         # Modelo 6 (corte espectral)
 │   └── graficas.py          # figuras plotly reutilizables
@@ -77,7 +74,7 @@ Diagnósticos).
 ## Pruebas
 
 Suite de pytest sobre las funciones críticas de `src/` (imputación, estimadores de
-μ/Σ, optimización clásica y espectral):
+$\mu$ y $\Sigma$, optimización clásica y espectral):
 
 ```powershell
 venv\Scripts\python.exe -m pytest
@@ -89,7 +86,7 @@ Cada etapa de migración del notebook original a `src/` se valida en un notebook
 dedicado dentro de `notebooks/`:
 
 - `01_validacion_datos.ipynb` — extracción, limpieza e imputación.
-- `02_validacion_estimacion.ipynb` — estimadores de μ y Σ.
+- `02_validacion_estimacion.ipynb` — estimadores de $\mu$ y $\Sigma$.
 - `03_validacion_frontera.ipynb` — frontera clásica vs. PyPortfolioOpt.
 - `04_validacion_espectral.ipynb` — convergencia y cotas del Modelo 6.
 - `05_validacion_integral.ipynb` — comparación end-to-end contra el notebook
@@ -103,16 +100,6 @@ ya apunta a él con `gunicorn`:
 ```
 web: gunicorn app:server
 ```
-
-Pasos generales (Render o Railway, ambos con tier gratuito):
-
-1. Conectar el repositorio de GitHub al servicio.
-2. Build command: `pip install -r requirements.txt`.
-3. Start command: se toma del `Procfile` automáticamente (o configúralo manualmente
-   como `gunicorn app:server`).
-4. Como el cache Parquet ya está versionado en el repo, el primer arranque no
-   depende de Yahoo Finance — solo se descarga de nuevo si el usuario presiona
-   "Actualizar datos" desde la interfaz ya desplegada.
 
 **Nota:** Yahoo Finance puede limitar o bloquear solicitudes desde IPs de
 datacenter con más agresividad que desde una IP residencial. Si "Actualizar datos"
