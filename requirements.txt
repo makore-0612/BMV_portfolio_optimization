@@ -9,3 +9,5 @@ statsmodels
 PyPortfolioOpt
 pyarrow
 jupyter
+pytest
+gunicorn

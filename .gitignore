@@ -75,8 +75,10 @@ docs/_build/
 .pybuilder/
 target/
 
-# Datos cacheados (parquet)
-data/
+# Datos cacheados (parquet) -- se versionan precios_crudos.parquet y benchmark.parquet
+# para que el despliegue arranque con datos listos sin depender de Yahoo Finance en vivo.
+data/*
+!data/*.parquet
 
 # Jupyter Notebook
 .ipynb_checkpoints
