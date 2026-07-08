@@ -87,7 +87,7 @@ app.layout = html.Div(className="app-contenedor", style={"display": "flex", "fon
         html.P("Selecciona los parámetros que desees utilizar para el proceso, luego presiona Calcular.", style={"color": "white"}),
 
         html.Label("Activos", style={"color": "white"}),
-        dcc.Dropdown(id="dropdown-activos", options=OPCIONES_ACTIVOS, value=ACTIVOS_DISPONIBLES, multi=True),
+        dcc.Dropdown(id="dropdown-activos", options=OPCIONES_ACTIVOS, value=[], multi=True),
         html.Button("Seleccionar todos", id="boton-todos-activos", n_clicks=0, style={"marginTop": "6px"}),
 
         html.Label("Periodo", style={"marginTop": "16px", "display": "block", "color": "white"}),

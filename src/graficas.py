@@ -39,7 +39,8 @@ def fig_rendimientos_diarios(rendimientos_log):
 def fig_heatmap_covarianza(Sigma, modo="covarianza"):
     if modo == "correlacion":
         desviaciones = np.sqrt(np.diag(Sigma.values))
-        matriz = Sigma.values / np.outer(desviaciones, desviaciones)
+        denominador = np.outer(desviaciones, desviaciones)
+        matriz = np.divide(Sigma.values, denominador, out=np.full_like(Sigma.values, np.nan), where=denominador > 0)
         titulo = "Correlación entre activos"
         zmid = 0
     else:

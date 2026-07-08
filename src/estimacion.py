@@ -45,7 +45,10 @@ def regresion_capm(rendimientos_log, rendimientos_benchmark, tasa_libre_riesgo_a
 
     sigma2_residual = (residuos ** 2).sum(axis=0) / grados_libertad
     error_estandar_alpha = np.sqrt(sigma2_residual * XtX_inv[0, 0])
-    t_stat_alpha = alpha / error_estandar_alpha
+    t_stat_alpha = np.divide(
+        alpha, error_estandar_alpha,
+        out=np.full_like(alpha, np.nan), where=error_estandar_alpha > 0,
+    )
     p_valor_alpha = 2 * (1 - stats.t.cdf(np.abs(t_stat_alpha), df=grados_libertad))
 
     prima_mercado_anual = exceso_mercado.mean() * factor_anual

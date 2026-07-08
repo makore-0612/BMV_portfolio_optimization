@@ -157,4 +157,5 @@ def imputar_precios(precios, umbral_racha_corta=3, ventana=5):
 
 
 def calcular_rendimientos_log(precios):
-    return np.log(precios / precios.shift(1)).dropna()
+    precios_validos = precios.where(precios > 0)
+    return np.log(precios_validos / precios_validos.shift(1)).dropna()
